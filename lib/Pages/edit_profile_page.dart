@@ -34,6 +34,9 @@ class EditProfilePage extends StatelessWidget {
                           size: 18,)))
               ],
             ),
+            SizedBox(
+              height: 16,
+            ),
             AppTextField(hint: 'First name'),
             SizedBox(
               height: 16,
