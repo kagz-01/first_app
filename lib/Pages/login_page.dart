@@ -1,3 +1,5 @@
+import 'package:first_app/config/app_icons.dart';
+import 'package:first_app/config/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -68,7 +70,7 @@ class LoginPage extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('/main');
+                      Navigator.of(context).pushNamed(AppRoutes.main);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.amber,
@@ -99,7 +101,7 @@ class LoginPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        'assets/imagess/google.png',
+                        AppIcons.icGoogle,
                         width: 22,
                         height: 22,
                       ),
@@ -124,7 +126,7 @@ class LoginPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        'assets/imagess/facebook.png',
+                        AppIcons.icFacebook,
                         width: 22,
                         height: 22,
                       ),

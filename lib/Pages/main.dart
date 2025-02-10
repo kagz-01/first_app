@@ -2,6 +2,7 @@ import 'package:first_app/Pages/home_page.dart';
 import 'package:first_app/Pages/login_page.dart';
 import 'package:first_app/Pages/main_page.dart';
 import 'package:first_app/Pages/profile_page.dart';
+import 'package:first_app/config/app_routes.dart';
 import 'package:first_app/styles/app_color.dart';
 import 'package:flutter/material.dart';
 
@@ -19,13 +20,8 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Urbanist',
         scaffoldBackgroundColor: Appcolors.background,
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const LoginPage(),
-        '/home': (context) => HomePage(),
-        '/main': (context) => const MainPage(),
-        '/profile' : (context) => const ProfilePage(),
-      },
+      initialRoute: AppRoutes.login,
+      routes: AppRoutes.pages,
     );
   }
 }

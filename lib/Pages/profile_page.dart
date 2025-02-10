@@ -1,6 +1,10 @@
 import 'package:first_app/components/tool_bar.dart';
+import 'package:first_app/components/user_avatar.dart';
+import 'package:first_app/config/app_routes.dart';
 import 'package:first_app/styles/app_text.dart';
 import 'package:flutter/material.dart';
+
+enum ProfileMenu{ edit,logout}
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -11,19 +15,38 @@ class ProfilePage extends StatelessWidget {
       appBar: ToolBar(
         title: 'Profile',
         actions: [
-          PopupMenuButton(itemBuilder: (context){
-            return [
-              const PopupMenuItem(child: Text('Edit')),
-              const PopupMenuItem(child: Text('Log Out')),
+          PopupMenuButton<ProfileMenu>(
+          onSelected: (value){
+            switch (value){
+              case ProfileMenu.edit:
+                Navigator.of(context).pushNamed(AppRoutes.editProfile);
+                break;
+              case ProfileMenu.logout:
+                print("Log out is pressed");
+                 break;
+                 default:
+
+    }
+    },
+        icon: const Icon(Icons.more_vert_outlined),
+      itemBuilder: (context){
+            return[
+              PopupMenuItem(
+                  child:  Text('Edit'),
+                  value: ProfileMenu.edit,
+                  ),
+              PopupMenuItem(
+                  child:  Text('Log Out'),
+              value: ProfileMenu.logout,
+              ),
             ];
-          },)
-        ],
+      }
+      )
+  ],
       ),
       body: Column(
         children: [
-          Image.asset('assets/Temp/image1.jpg',
-          width: 90,
-          height: 90,
+           const UserAvatar(size: 90,
           ),
           const SizedBox(
             height: 12,
